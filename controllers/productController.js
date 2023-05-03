@@ -10,6 +10,11 @@ const getProducts = (req, res) => {
 //@access public
 const createProduct = (req, res) => {
   console.log(req.body);
+  const { name, price, description} = req.body;
+  if(!name || !price || !description) {
+    res.status(400);
+    throw new Error("All fields are mendatory");
+  }
   res.status(201).json({ message: "Create product" });
 };
 //GET product
