@@ -2,6 +2,11 @@ const mongoose = require("mongoose");
 
 const productSchema = mongoose.Schema(
   {
+    user_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "User",
+    },
     name: {
       type: String,
       required: [true, "Please add the product name"],
@@ -20,4 +25,4 @@ const productSchema = mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Product", productSchema); 
+module.exports = mongoose.model("Product", productSchema);
